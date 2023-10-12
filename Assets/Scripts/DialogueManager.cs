@@ -22,39 +22,42 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject inputIndication;
     
     private bool _isTalking = false;
+    private bool _isTest;
 
     private void Start() => dialogueUI.SetActive(false);
+    
+    private void Update()
+    {
+        if(!_isTest) return;
+        InteractionInput();
+    }
 
     private void InteractionInput()
     {
         if(Input.GetKeyDown(KeyCode.E) && _isTalking == false) OnStartConversation();
-        else if(Input.GetKeyDown(KeyCode.E) && _isTalking == true) OnEndConversation();
+        else if (Input.GetKeyDown(KeyCode.E) && _isTalking) OnEndConversation();
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         //This doesn't look clean 
+        _isTest = true;
         if(other.gameObject != player) return;
-        InteractionInput();
+        //_isTalking = _isTest ? inputIndication.SetActive(true) : inputIndication.SetActive(false);
         if(_isTalking == false) inputIndication.SetActive(true);
-        if(_isTalking == true) inputIndication.SetActive(false);
     }
 
-    private void OnTriggerExit(Collider other) => inputIndication.SetActive(false);
-
-    //This doesn't work for some reason, maybe because this is for first person.
-    /* 
-    private void OnInteraction()
+    private void OnTriggerExit(Collider other)
     {
-        distance = Vector3.Distance(player.transform.position, this.transform.position);
-        if (distance <= maxDistance) InteractionInput();
-        //show text indication of that you can press the input button to start the converstation.
+        inputIndication.SetActive(false);
+        _isTest = false;
+        OnEndConversation();
     }
-    */
 
     private void OnStartConversation()
     {
         _isTalking = true;
+        if(_isTalking) inputIndication.SetActive(false);
         currentResponseTracker = 0;
         dialogueUI.SetActive(true);
         npcName.text = npc.name;
