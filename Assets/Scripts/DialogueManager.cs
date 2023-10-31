@@ -19,10 +19,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text dialogueBox;
     [SerializeField] private string playerResponse;
 
+    [TextArea (0,15), SerializeField] private string response;
+
     [SerializeField] private GameObject inputIndication;
     
     private bool _isTalking = false;
     private bool _isTest;
+    
+    private int _dialogueOrder = -1;
 
     private void Start() => dialogueUI.SetActive(false);
     
@@ -35,9 +39,37 @@ public class DialogueManager : MonoBehaviour
     private void InteractionInput()
     {
         if(Input.GetKeyDown(KeyCode.E) && _isTalking == false) OnStartConversation();
+        else if(Input.GetKeyDown(KeyCode.E)) Next();
+        else if(Input.GetKeyDown(KeyCode.T)) Previous();
         else if (Input.GetKeyDown(KeyCode.E) && _isTalking) OnEndConversation();
     }
-    
+
+    private void Next()
+    {
+        _dialogueOrder++;
+        if (_dialogueOrder >= npc.Dialogue.Length)
+        {
+            OnEndConversation();
+            return;
+        }
+        UpdateText();
+    }
+
+    private void Previous()
+    {
+        _dialogueOrder--;
+        if (_dialogueOrder < 0)
+        {
+            _dialogueOrder = 0;
+        }
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        dialogueBox.text = npc.Dialogue[_dialogueOrder];
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //This doesn't look clean 
@@ -45,6 +77,12 @@ public class DialogueManager : MonoBehaviour
         if(other.gameObject != player) return;
         //_isTalking = _isTest ? inputIndication.SetActive(true) : inputIndication.SetActive(false);
         if(_isTalking == false) inputIndication.SetActive(true);
+    }
+
+    public void ChoiceTest()
+    {
+        dialogueBox.text = response;
+        Debug.Log("test");
     }
 
     private void OnTriggerExit(Collider other)
@@ -61,7 +99,7 @@ public class DialogueManager : MonoBehaviour
         currentResponseTracker = 0;
         dialogueUI.SetActive(true);
         npcName.text = npc.name;
-        dialogueBox.text = npc.Dialogue[0];
+        Next();
     }
     
     private void OnEndConversation()
