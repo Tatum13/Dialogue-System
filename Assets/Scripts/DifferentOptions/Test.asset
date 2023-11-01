@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   name: 
-  dialogue: []
+  dialogue:
+  - test
   playerDialogue: []

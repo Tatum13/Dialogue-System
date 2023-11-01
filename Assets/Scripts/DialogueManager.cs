@@ -1,50 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private NPC npc;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject dialogueUI;
-
-    [SerializeField] private float distance;
-    [SerializeField] private float maxDistance;
+    [SerializeField] private GameObject inputIndication;
+    
+    [Header("Settings")]
     [SerializeField] private float currentResponseTracker = 0;
 
+    [Header("I don't know how to call this yet")]
     [SerializeField] private TMP_Text npcName;
     [SerializeField] private TMP_Text dialogueBox;
     [SerializeField] private string playerResponse;
-
+    
     [TextArea (0,15), SerializeField] private string response;
 
-    [SerializeField] private GameObject inputIndication;
-    
-    private bool _isTalking = false;
-    private bool _isTest;
-    
     private int _dialogueOrder = -1;
+    
+    public bool _isTalking;
+    public bool _isTest;
 
     private void Start() => dialogueUI.SetActive(false);
-    
-    private void Update()
-    {
-        if(!_isTest) return;
-        InteractionInput();
-    }
 
-    private void InteractionInput()
-    {
-        if(Input.GetKeyDown(KeyCode.E) && _isTalking == false) OnStartConversation();
-        else if(Input.GetKeyDown(KeyCode.E)) Next();
-        else if(Input.GetKeyDown(KeyCode.T)) Previous();
-        else if (Input.GetKeyDown(KeyCode.E) && _isTalking) OnEndConversation();
-    }
-
-    private void Next()
+    public void Next()
     {
         _dialogueOrder++;
         if (_dialogueOrder >= npc.Dialogue.Length)
@@ -55,28 +37,21 @@ public class DialogueManager : MonoBehaviour
         UpdateText();
     }
 
-    private void Previous()
+    public void Previous()
     {
         _dialogueOrder--;
-        if (_dialogueOrder < 0)
-        {
-            _dialogueOrder = 0;
-        }
+        if (_dialogueOrder < 0) _dialogueOrder = 0; 
         UpdateText();
     }
 
-    private void UpdateText()
-    {
-        dialogueBox.text = npc.Dialogue[_dialogueOrder];
-    }
+    private void UpdateText() => dialogueBox.text = npc.Dialogue[_dialogueOrder];
 
     private void OnTriggerEnter(Collider other)
     {
         //This doesn't look clean 
         _isTest = true;
-        if(other.gameObject != player) return;
-        //_isTalking = _isTest ? inputIndication.SetActive(true) : inputIndication.SetActive(false);
-        if(_isTalking == false) inputIndication.SetActive(true);
+        if (other.gameObject != player) return;
+        if (!_isTalking) inputIndication.SetActive(true);
     }
 
     public void ChoiceTest()
@@ -92,7 +67,7 @@ public class DialogueManager : MonoBehaviour
         OnEndConversation();
     }
 
-    private void OnStartConversation()
+    public void OnStartConversation()
     {
         _isTalking = true;
         if(_isTalking) inputIndication.SetActive(false);
@@ -102,7 +77,7 @@ public class DialogueManager : MonoBehaviour
         Next();
     }
     
-    private void OnEndConversation()
+    public void OnEndConversation()
     {
         _isTalking = false;
         dialogueUI.SetActive(false);

@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054776ecf32a7334fa788f88c0028fd6, type: 3}
   m_Name: Berend
   m_EditorClassIdentifier: 
-  name: 
-  dialogue: []
+  name: Berend
+  dialogue:
+  - sdfsdfsdf
+  - werwer
+  - 'xcvxc
+
+'
   playerDialogue: []
