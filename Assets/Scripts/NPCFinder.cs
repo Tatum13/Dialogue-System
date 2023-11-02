@@ -8,10 +8,16 @@ public class NPCFinder : MonoBehaviour
     
     [Header("Player Settings")]
     [SerializeField] private Vector3 radius;
+
+    private bool _hasNPCInRange;
     
     private void Start() => _dialogueManager = FindObjectOfType<DialogueManager>();
 
-    private void Update() => FindNPCInRange();
+    private void Update()
+    {
+        FindNPCInRange();
+        OnNPCInRange();
+    } 
 
     private void OnDrawGizmos()
     {
@@ -22,16 +28,29 @@ public class NPCFinder : MonoBehaviour
     private void FindNPCInRange()
     {
         var npcInRange = Physics.OverlapBox(transform.position, radius);
-        foreach (Collider anNPC in npcInRange)
+
+        foreach (var anNPC in npcInRange)
         {
-            if(anNPC.transform.CompareTag("Player")) continue;
-            if(anNPC.transform.CompareTag("NPC"))
+            if (anNPC.transform.CompareTag("NPC"))
             {
-                _dialogueManager._isWithinRadius = true;
-                if(_dialogueManager._dialogueOrder >= _npc.Dialogue.Length) Debug.Log("This works");
-                if (!_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(true);
+                _hasNPCInRange = true;
+                break;
             }
-            if (anNPC.transform.CompareTag("NPC")) return;
+            _hasNPCInRange = false;
+        }
+    }
+
+    private void OnNPCInRange()
+    {
+        if (_hasNPCInRange)
+        {
+            _dialogueManager._isWithinRadius = true;
+            //if(_dialogueManager._dialogueOrder >= _npc.Dialogue.Length) Debug.Log("This works");
+            if (!_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(true);
+        }
+        else
+        {
+            if (!_dialogueManager._isTalking || _dialogueManager._dialogueOrder >= _npc.Dialogue.Length) _dialogueManager.inputIndication.SetActive(false);
         }
     }
 }
