@@ -1157,15 +1157,15 @@ MonoBehaviour:
   npc: {fileID: 11400000, guid: fa9a8833b99d85749bcad8c76cfeb864, type: 2}
   player: {fileID: 318076059}
   dialogueUI: {fileID: 1204430009}
-  currentResponseTracker: 0
   npcName: {fileID: 1531869386}
   dialogueBox: {fileID: 1204670675}
+  inputIndication: {fileID: 1701433102}
+  currentResponseTracker: 0
   playerResponse: 
   response: Test blabla bla
-  inputIndication: {fileID: 1701433102}
   _dialogueOrder: -1
+  _isWithinRadius: 0
   _isTalking: 0
-  _isTest: 0
 --- !u!114 &318076068
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if(!_dialogueManager._isTest) return;
+        if(!_dialogueManager._isWithinRadius) return;
         InteractionInput();
     }
     

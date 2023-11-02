@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class NPCFinder : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private NPC _npc;
     
+    [Header("Player Settings")]
     [SerializeField] private Vector3 radius;
     
     private void Start() => _dialogueManager = FindObjectOfType<DialogueManager>();
@@ -25,11 +27,11 @@ public class NPCFinder : MonoBehaviour
             if(anNPC.transform.CompareTag("Player")) continue;
             if(anNPC.transform.CompareTag("NPC"))
             {
-                _dialogueManager._isTest = true;
-                if(_dialogueManager._dialogueOrder >= _npc.Dialogue.Length) Debug.Log("text test3");
+                _dialogueManager._isWithinRadius = true;
+                if(_dialogueManager._dialogueOrder >= _npc.Dialogue.Length) Debug.Log("This works");
                 if (!_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(true);
             }
-            if(!anNPC.CompareTag("NPC")) _dialogueManager.inputIndication.SetActive(false);
+            if (anNPC.transform.CompareTag("NPC")) return;
         }
     }
 }

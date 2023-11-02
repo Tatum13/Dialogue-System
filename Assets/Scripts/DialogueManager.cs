@@ -7,34 +7,25 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private NPC npc;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject dialogueUI;
-
-    [Header("Settings")]
-    [SerializeField] private float currentResponseTracker = 0;
-
-    [Header("I don't know how to call this yet")]
     [SerializeField] private TMP_Text npcName;
     [SerializeField] private TMP_Text dialogueBox;
-    [SerializeField] private string playerResponse;
     
+    public GameObject inputIndication;
+
+    [Header("Player Settings")]
+    [SerializeField] private float currentResponseTracker = 0;
+    [SerializeField] private string playerResponse;
     [TextArea (0,15), SerializeField] private string response;
 
-    public GameObject inputIndication;
-    public int _dialogueOrder = -1;
+    [HideInInspector] public int _dialogueOrder = -1;
+    
+    [Header("Checks")]
+    public bool _isWithinRadius;
     public bool _isTalking;
-    public bool _isTest;
 
     private void Start() => dialogueUI.SetActive(false);
-
-    /*
-    private void OnTriggerEnter(Collider other)//Look if an npc is within the collider (with npc tag)
-    {
-        //This doesn't look clean 
-        _isTest = true;
-        if(_dialogueOrder >= npc.Dialogue.Length) Debug.Log("text test3");
-        if (other.gameObject != player) return;
-        if (!_isTalking) inputIndication.SetActive(true);
-    }
-    */
+    
+    private void UpdateText() => dialogueBox.text = npc.Dialogue[_dialogueOrder];
 
     public void OnStartConversation()
     {
@@ -49,7 +40,7 @@ public class DialogueManager : MonoBehaviour
     public void Next()
     {
         _dialogueOrder++;
-        if (_dialogueOrder >= npc.Dialogue.Length)
+        if(_dialogueOrder >= npc.Dialogue.Length)
         {
             OnEndConversation();
             return;
@@ -60,37 +51,13 @@ public class DialogueManager : MonoBehaviour
     public void Previous()
     {
         _dialogueOrder--;
-        if (_dialogueOrder < 0) _dialogueOrder = 0; 
+        if(_dialogueOrder < 0) _dialogueOrder = 0; 
         UpdateText();
     }
-    
-    private void UpdateText() => dialogueBox.text = npc.Dialogue[_dialogueOrder];
-    
+
     public void OnEndConversation()
     {
         _isTalking = false;
         dialogueUI.SetActive(false);
     }
-
-    /*
-    private void OnTriggerExit(Collider other)
-    {
-        inputIndication.SetActive(false);
-        _isTest = false;
-        OnEndConversation();
-    }
-    */
-
-    public void ChoiceTest()
-    {
-        dialogueBox.text = response;
-        Debug.Log("test");
-    }
-
-    /*
-    private void OnSelectOption()
-    {
-        
-    }
-    */
 }
