@@ -29,9 +29,9 @@ public class NPCFinder : MonoBehaviour
     {
         var npcInRange = Physics.OverlapBox(transform.position, radius);
 
-        foreach (var anNPC in npcInRange)
+        foreach (var aNPC in npcInRange)
         {
-            if (anNPC.transform.CompareTag("NPC"))
+            if (aNPC.transform.CompareTag("NPC"))
             {
                 _hasNPCInRange = true;
                 break;
