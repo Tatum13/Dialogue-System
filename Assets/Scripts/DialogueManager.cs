@@ -7,8 +7,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private NPC npc;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject dialogueUI;
-    [SerializeField] private GameObject inputIndication;
-    
+
     [Header("Settings")]
     [SerializeField] private float currentResponseTracker = 0;
 
@@ -19,12 +18,33 @@ public class DialogueManager : MonoBehaviour
     
     [TextArea (0,15), SerializeField] private string response;
 
-    private int _dialogueOrder = -1;
-    
+    public GameObject inputIndication;
+    public int _dialogueOrder = -1;
     public bool _isTalking;
     public bool _isTest;
 
     private void Start() => dialogueUI.SetActive(false);
+
+    /*
+    private void OnTriggerEnter(Collider other)//Look if an npc is within the collider (with npc tag)
+    {
+        //This doesn't look clean 
+        _isTest = true;
+        if(_dialogueOrder >= npc.Dialogue.Length) Debug.Log("text test3");
+        if (other.gameObject != player) return;
+        if (!_isTalking) inputIndication.SetActive(true);
+    }
+    */
+
+    public void OnStartConversation()
+    {
+        _isTalking = true;
+        if(_isTalking) inputIndication.SetActive(false);
+        currentResponseTracker = 0;
+        dialogueUI.SetActive(true);
+        npcName.text = npc.name;
+        Next();
+    }
 
     public void Next()
     {
@@ -43,44 +63,28 @@ public class DialogueManager : MonoBehaviour
         if (_dialogueOrder < 0) _dialogueOrder = 0; 
         UpdateText();
     }
-
+    
     private void UpdateText() => dialogueBox.text = npc.Dialogue[_dialogueOrder];
-
-    private void OnTriggerEnter(Collider other)
+    
+    public void OnEndConversation()
     {
-        //This doesn't look clean 
-        _isTest = true;
-        if (other.gameObject != player) return;
-        if (!_isTalking) inputIndication.SetActive(true);
+        _isTalking = false;
+        dialogueUI.SetActive(false);
     }
 
-    public void ChoiceTest()
-    {
-        dialogueBox.text = response;
-        Debug.Log("test");
-    }
-
+    /*
     private void OnTriggerExit(Collider other)
     {
         inputIndication.SetActive(false);
         _isTest = false;
         OnEndConversation();
     }
+    */
 
-    public void OnStartConversation()
+    public void ChoiceTest()
     {
-        _isTalking = true;
-        if(_isTalking) inputIndication.SetActive(false);
-        currentResponseTracker = 0;
-        dialogueUI.SetActive(true);
-        npcName.text = npc.name;
-        Next();
-    }
-    
-    public void OnEndConversation()
-    {
-        _isTalking = false;
-        dialogueUI.SetActive(false);
+        dialogueBox.text = response;
+        Debug.Log("test");
     }
 
     /*
