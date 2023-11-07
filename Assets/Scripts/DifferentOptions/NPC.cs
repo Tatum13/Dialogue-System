@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,8 @@ using UnityEngine;
 public class NPC : ScriptableObject
 {
     [SerializeField] private string name;
+    [SerializeField] List<AllDialogue> allDialogue = new List<AllDialogue>();
     [TextArea(3, 15)] [SerializeField] private string[] dialogue;
-    [TextArea(3, 15)] [SerializeField] private string[] playerDialogue;
-
+    public List<AllDialogue> AllDialogue => allDialogue;
     public string[] Dialogue => dialogue;
 }

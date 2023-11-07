@@ -4,7 +4,8 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private NPC npc;
+    public NPC npc;
+    [SerializeField] private AllDialogue _allDialogue;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TMP_Text npcName;
@@ -23,9 +24,13 @@ public class DialogueManager : MonoBehaviour
     public bool _isWithinRadius;
     public bool _isTalking;
 
-    private void Start() => dialogueUI.SetActive(false);
-    
-    private void UpdateText() => dialogueBox.text = npc.Dialogue[_dialogueOrder];
+    private void Start()
+    {
+        npc = FindObjectOfType<NPC>();
+        dialogueUI.SetActive(false);
+    }
+
+    private void UpdateText() => dialogueBox.text = _allDialogue.NPCDialogue[_dialogueOrder];
 
     public void OnStartConversation()
     {
@@ -40,7 +45,7 @@ public class DialogueManager : MonoBehaviour
     public void Next()
     {
         _dialogueOrder++;
-        if(_dialogueOrder >= npc.Dialogue.Length)
+        if(_dialogueOrder >= _allDialogue.NPCDialogue.Length)
         {
             OnEndConversation();
             return;
@@ -59,5 +64,8 @@ public class DialogueManager : MonoBehaviour
     {
         _isTalking = false;
         dialogueUI.SetActive(false);
+        Reset();
     }
+
+    private void Reset() => _dialogueOrder = -1;
 }
