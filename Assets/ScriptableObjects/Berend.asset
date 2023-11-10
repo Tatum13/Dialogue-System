@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: Berend
   m_EditorClassIdentifier: 
   name: Berend
+  allDialogue:
+  - npcDialogue:
+    - Ik ga een code review doen.
+    - Ey, ik heb feedback.
+    - Maak het script opnieuw.
+    playerResponse:
+    - e
   dialogue:
   - sdfsdfsdf
   - werwer
   - 'xcvxc
 
 '
-  playerDialogue: []

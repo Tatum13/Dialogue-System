@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Mikey
   m_EditorClassIdentifier: 
   name: Mikey
-  allDialogue: []
+  allDialogue:
+  - npcDialogue:
+    - I like wraith.
+    playerResponse:
+    - w
   dialogue:
   - Eyyyyoo, how you doing?
   - goodddddddd to hear

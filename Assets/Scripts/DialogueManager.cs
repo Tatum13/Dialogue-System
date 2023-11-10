@@ -4,9 +4,7 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     [Header("References")]
-    public NPC npc;
-    [SerializeField] private AllDialogue _allDialogue;
-    [SerializeField] private GameObject player;
+    [SerializeField] private NPCFinder npcFinder;
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TMP_Text npcName;
     [SerializeField] private TMP_Text dialogueBox;
@@ -24,13 +22,9 @@ public class DialogueManager : MonoBehaviour
     public bool _isWithinRadius;
     public bool _isTalking;
 
-    private void Start()
-    {
-        npc = FindObjectOfType<NPC>();
-        dialogueUI.SetActive(false);
-    }
-
-    private void UpdateText() => dialogueBox.text = _allDialogue.NPCDialogue[_dialogueOrder];
+    private void Start() => dialogueUI.SetActive(false);
+    
+    private void UpdateText() => dialogueBox.text =  npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder];
 
     public void OnStartConversation()
     {
@@ -38,14 +32,15 @@ public class DialogueManager : MonoBehaviour
         if(_isTalking) inputIndication.SetActive(false);
         currentResponseTracker = 0;
         dialogueUI.SetActive(true);
-        npcName.text = npc.name;
+        npcName.text = npcFinder.GetNPCName._npc.name;
         Next();
     }
 
     public void Next()
     {
         _dialogueOrder++;
-        if(_dialogueOrder >= _allDialogue.NPCDialogue.Length)
+        
+        if(_dialogueOrder >= npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue.Length)
         {
             OnEndConversation();
             return;

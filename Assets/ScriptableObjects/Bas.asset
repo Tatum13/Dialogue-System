@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 054776ecf32a7334fa788f88c0028fd6, type: 3}
-  m_Name: Tatum
+  m_Name: Bas
   m_EditorClassIdentifier: 
   name: 
   allDialogue:
   - npcDialogue:
-    - 'Gegroet '
-    - Ik ben de gingerbread
-    playerResponse:
-    - Yo
-    - Test2
-  dialogue:
-  - 'TEst
-
-'
-  - 2
+    - Kijk luister!
+    - Koffie of thee? Dat is de echte vraag!
+    - Dan met of zonder patatje?
+    - Zolang er maar geen ananas op zit!
+    - ....................
+    - Dat is de lekkerste pizza
+    - Met vriendelijke groet, Idioot 1!
+    playerResponse: []
+  dialogue: []

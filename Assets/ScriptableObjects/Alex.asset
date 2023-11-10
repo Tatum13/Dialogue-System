@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Alex
   m_EditorClassIdentifier: 
   name: 
-  allDialogue: []
+  allDialogue:
+  - npcDialogue:
+    - Het speelt niet lekker.
+    - Begin maar weer helemaal opnieuw.
+    playerResponse:
+    - a
   dialogue:
   - aaaaaaaaaaa

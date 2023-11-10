@@ -4,14 +4,17 @@ public class NPCFinder : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private DialogueManager _dialogueManager;
-    [SerializeField] private NPC _npc;
     [SerializeField] private NPCName npcName;
     [SerializeField] private AllDialogue _allDialogue;
 
     [Header("Player Settings")]
     [SerializeField] private Vector3 radius;
 
+    public readonly int firstNPCDialogue = 0;
+    
     private bool _hasNPCInRange;
+
+    public NPCName GetNPCName => npcName;
     
     private void Start()
     {
@@ -35,6 +38,8 @@ public class NPCFinder : MonoBehaviour
     {
         var npcInRange = Physics.OverlapBox(transform.position, radius);
 
+        if (npcInRange.Length == 0) _hasNPCInRange = false; 
+        
         foreach (var aNPC in npcInRange)
         {
             if (aNPC.transform.CompareTag("NPC"))
@@ -51,7 +56,7 @@ public class NPCFinder : MonoBehaviour
     {
         if (_hasNPCInRange)
         {
-            _allDialogue = npcName._npc;
+            _allDialogue = npcName._npc.AllDialogue[0];
             _dialogueManager._isWithinRadius = true;
             if (!_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(true);
         }

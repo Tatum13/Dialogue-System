@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Daan
   allDialogue:
-  - npcDialogue: []
-    playerResponse: []
+  - npcDialogue:
+    - Uhmm.....
+    - ..............
+    - I'm making rat.
+    playerResponse:
+    - a
   dialogue:
   - yo
   - 'eyoo
