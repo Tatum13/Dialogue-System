@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class NPCFinder : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class NPCFinder : MonoBehaviour
         }
         else
         {
-            if (!_dialogueManager._isTalking || _dialogueManager._dialogueOrder >= _allDialogue.NPCDialogue.Length) _dialogueManager.inputIndication.SetActive(false);
+            if (!_dialogueManager._isTalking || _dialogueManager._dialogueOrder >= _allDialogue.NPCDialogue.Count) _dialogueManager.inputIndication.SetActive(false);
         }
     }
 }

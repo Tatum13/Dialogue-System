@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start() => dialogueUI.SetActive(false);
     
-    private void UpdateText() => dialogueBox.text =  npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder];
+    private void UpdateText() => dialogueBox.text =  npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder].ToString();
 
     public void OnStartConversation()
     {
@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
     {
         _dialogueOrder++;
         
-        if(_dialogueOrder >= npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue.Length)
+        if(_dialogueOrder >= npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue.Count)
         {
             OnEndConversation();
             return;

@@ -16,8 +16,7 @@ MonoBehaviour:
   allDialogue:
   - npcDialogue:
     - I like wraith.
-    playerResponse:
-    - w
+    playerResponse: []
   dialogue:
   - Eyyyyoo, how you doing?
   - goodddddddd to hear
