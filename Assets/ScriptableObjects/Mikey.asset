@@ -15,8 +15,11 @@ MonoBehaviour:
   name: Mikey
   allDialogue:
   - npcDialogue:
-    - I like wraith.
-    playerResponse: []
+    - npcDialogue: de56f
+      playerResponse:
+        testBool: 0
+        playerDialogue:
+        - gy5rubuu
   dialogue:
   - Eyyyyoo, how you doing?
   - goodddddddd to hear

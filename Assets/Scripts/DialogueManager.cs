@@ -23,13 +23,12 @@ public class DialogueManager : MonoBehaviour
     public bool _isTalking;
 
     private void Start() => dialogueUI.SetActive(false);
-    
-    private void UpdateText() => dialogueBox.text =  npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder].ToString();
+
+    private void UpdateText() => dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder].NpcDialogue;
 
     public void OnStartConversation()
     {
         _isTalking = true;
-        if(_isTalking) inputIndication.SetActive(false);
         currentResponseTracker = 0;
         dialogueUI.SetActive(true);
         npcName.text = npcFinder.GetNPCName._npc.name;

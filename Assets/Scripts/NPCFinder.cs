@@ -59,6 +59,7 @@ public class NPCFinder : MonoBehaviour
         {
             _allDialogue = npcName._npc.AllDialogue[0];
             _dialogueManager._isWithinRadius = true;
+            if(_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(false);
             if (!_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(true);
         }
         else

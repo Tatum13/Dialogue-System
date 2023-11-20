@@ -15,11 +15,21 @@ MonoBehaviour:
   name: Berend
   allDialogue:
   - npcDialogue:
-    - Ik ga een code review doen.
-    - Ey, ik heb feedback.
-    - Maak het script opnieuw.
-    playerResponse:
-    - e
+    - npcDialogue: 'test
+
+'
+      playerResponse:
+        testBool: 0
+        playerDialogue: []
+    - npcDialogue: a
+      playerResponse:
+        testBool: 0
+        playerDialogue:
+        - b
+    - npcDialogue: 
+      playerResponse:
+        testBool: 0
+        playerDialogue: []
   dialogue:
   - sdfsdfsdf
   - werwer

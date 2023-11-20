@@ -10,10 +10,10 @@ public class ChoiceManager : MonoBehaviour
 
     public void OnChoiceButtonOne()
     {
-        
+        Debug.Log("button1");
     }
     public void OnChoiceButtonTwo()
     {
-        
+        Debug.Log("button2");
     }
 }

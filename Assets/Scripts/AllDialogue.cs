@@ -7,7 +7,7 @@ public struct AllDialogue
 {
     [SerializeField] private List<NPCDialogue> npcDialogue;
 
-    public List<NPCDialogue> NPCDialogue => npcDialogue = new List<NPCDialogue>();
+    public List<NPCDialogue> NPCDialogue => npcDialogue;
 }
 
 [Serializable]
@@ -24,7 +24,7 @@ public struct NPCDialogue
 public struct PlayerResponse
 {
     [SerializeField] private bool testBool;
-    [TextArea(0,15), SerializeField] private string playerDialogue;
+    [TextArea(0,15), SerializeField] private string[] playerDialogue;
 
-    public string PlayerDialogue => playerDialogue;
+    public string[] PlayerDialogue => playerDialogue;
 }

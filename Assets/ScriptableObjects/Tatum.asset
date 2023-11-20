@@ -15,11 +15,15 @@ MonoBehaviour:
   name: 
   allDialogue:
   - npcDialogue:
-    - 'Gegroet '
-    - Ik ben de gingerbread
-    playerResponse:
-    - Yo
-    - Test2
+    - npcDialogue: This shizzle will never work.........
+      playerResponse:
+        testBool: 0
+        playerDialogue:
+        - You're right..
+    - npcDialogue: 
+      playerResponse:
+        testBool: 0
+        playerDialogue: []
   dialogue:
   - 'TEst
 
