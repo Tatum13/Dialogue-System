@@ -5,13 +5,16 @@ public class NPCFinder : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private ChoiceManager choiceManager;
     [SerializeField] private NPCName npcName;
     [SerializeField] private AllDialogue _allDialogue;
+    [SerializeField] private PlayerResponse playerResponse;
 
     [Header("Player Settings")]
     [SerializeField] private Vector3 radius;
 
     public readonly int firstNPCDialogue = 0;
+    public readonly int firstPlayerResponse = 0;
     
     private bool _hasNPCInRange;
 
@@ -64,7 +67,12 @@ public class NPCFinder : MonoBehaviour
         }
         else
         {
-            if (!_dialogueManager._isTalking || _dialogueManager._dialogueOrder >= _allDialogue.NPCDialogue.Count) _dialogueManager.inputIndication.SetActive(false);
+            if (!_dialogueManager._isTalking || _dialogueManager._dialogueOrder >= _allDialogue.NPCDialogue.Count)
+            {
+                _dialogueManager.OnEndConversation();
+                _dialogueManager.inputIndication.SetActive(false);
+                choiceManager.isPlayerResponse = false;
+            }
         }
     }
 }

@@ -25,6 +25,14 @@ public struct PlayerResponse
 {
     [SerializeField] private bool testBool;
     [TextArea(0,15), SerializeField] private string[] playerDialogue;
+    [SerializeField] private NPCResponse npcResponse;
 
+    public NPCResponse NpcResponse => npcResponse;
     public string[] PlayerDialogue => playerDialogue;
+}
+
+[Serializable]
+public struct NPCResponse
+{
+    [TextArea(0,15), SerializeField] private string playerDialogue;
 }

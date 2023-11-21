@@ -1,19 +1,66 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChoiceManager : MonoBehaviour
 {
-    [SerializeField] private GameObject textBox;
-    [SerializeField] private string choicePlayer;
+    [Header("References")]
+    [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private NPCFinder npcFinder;
+    public GameObject choiceButtons;
+    [SerializeField] private string name;
 
-    private AllDialogue _allDialogue;   
+    [Header("Player Settings")]
+    public bool isPlayerResponse;
 
-    public void OnChoiceButtonOne()
+    [HideInInspector] public int playerResponseOrder = -1;
+
+    private AllDialogue _allDialogue;
+
+    //private void UpdateText() => _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PlayerDialogue[playerResponseOrder];
+
+    public void FirstPlayerResponse()
     {
-        Debug.Log("button1");
+        isPlayerResponse = true;
+        _dialogueManager.npcName.text = name;
+        if (isPlayerResponse)
+        {
+            _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PlayerDialogue[0];
+        }
+        //NextPlayerDialogue();
     }
-    public void OnChoiceButtonTwo()
+
+    public void SecondPlayerResponse()
     {
-        Debug.Log("button2");
+        isPlayerResponse = true;
+        _dialogueManager.npcName.text = name;
+        if (isPlayerResponse)
+        {
+            _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PlayerDialogue[1];
+        }
+        //NextPlayerDialogue();
     }
+
+    public void ResetDialogue()
+    {
+        _dialogueManager._dialogueOrder = -1;
+        
+        //_dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].NpcDialogue;
+    }
+    
+    /*
+    public void NextPlayerDialogue()
+    {
+        playerResponseOrder++;
+
+        if(playerResponseOrder >= npcFinder.GetNPCName._npc.playerResponse.PlayerDialogue.Length)
+        {
+            isPlayerResponse = false;
+            return;
+        }
+        UpdateText();
+    }
+    */
+    
+    //public void 
 }

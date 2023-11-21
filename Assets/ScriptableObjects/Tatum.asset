@@ -19,13 +19,23 @@ MonoBehaviour:
       playerResponse:
         testBool: 0
         playerDialogue:
+        - No no you're wrong, one day it will work!
         - You're right..
+        npcResponse:
+          playerDialogue: 
     - npcDialogue: 
       playerResponse:
         testBool: 0
         playerDialogue: []
+        npcResponse:
+          playerDialogue: 
   dialogue:
   - 'TEst
 
 '
   - 2
+  playerResponse:
+    testBool: 0
+    playerDialogue: []
+    npcResponse:
+      playerDialogue: 

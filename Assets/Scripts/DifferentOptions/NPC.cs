@@ -8,5 +8,8 @@ public class NPC : ScriptableObject
     [SerializeField] List<AllDialogue> allDialogue = new List<AllDialogue>();
     [TextArea(3, 15)] [SerializeField] private string[] dialogue;
     public List<AllDialogue> AllDialogue => allDialogue;
+
+    public PlayerResponse playerResponse;
+    
     public string[] Dialogue => dialogue;
 }

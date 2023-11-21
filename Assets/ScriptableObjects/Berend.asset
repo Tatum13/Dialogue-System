@@ -20,19 +20,19 @@ MonoBehaviour:
 '
       playerResponse:
         testBool: 0
-        playerDialogue: []
-    - npcDialogue: a
-      playerResponse:
-        testBool: 0
         playerDialogue:
-        - b
-    - npcDialogue: 
-      playerResponse:
-        testBool: 0
-        playerDialogue: []
+        - keuze 1
+        - keuze 2
+        npcResponse:
+          playerDialogue: Werkt
   dialogue:
   - sdfsdfsdf
   - werwer
   - 'xcvxc
 
 '
+  playerResponse:
+    testBool: 0
+    playerDialogue: []
+    npcResponse:
+      playerDialogue: 
