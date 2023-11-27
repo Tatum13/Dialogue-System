@@ -12,26 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054776ecf32a7334fa788f88c0028fd6, type: 3}
   m_Name: Daan
   m_EditorClassIdentifier: 
-  name: Daan
   allDialogue:
   - npcDialogue:
     - npcDialogue: fyu
       playerResponse:
-        testBool: 0
-        playerDialogue:
-        - ui
-    - npcDialogue: yrdcv
-      playerResponse:
-        testBool: 0
-        playerDialogue:
-        - dedeedrr
-    - npcDialogue: 
-      playerResponse:
-        testBool: 0
-        playerDialogue: []
-  dialogue:
-  - yo
-  - 'eyoo
-
-'
-  - fefsefs
+        name: You
+        positiveResponse:
+          reactPositive: 
+          npcResponse:
+            npcResponse: 
+        negativeResponse:
+          reactNegative: 
+          npcResponse:
+            npcResponse: 

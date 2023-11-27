@@ -17,10 +17,13 @@ MonoBehaviour:
   - npcDialogue:
     - npcDialogue: de56f
       playerResponse:
-        testBool: 0
+        name: You
         playerDialogue:
         - gy5rubuu
-  dialogue:
-  - Eyyyyoo, how you doing?
-  - goodddddddd to hear
-  - Bye bye
+        npcResponse:
+          npcResponse: 
+  playerResponse:
+    name: 
+    playerDialogue: []
+    npcResponse:
+      npcResponse: 

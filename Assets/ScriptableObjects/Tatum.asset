@@ -12,30 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054776ecf32a7334fa788f88c0028fd6, type: 3}
   m_Name: Tatum
   m_EditorClassIdentifier: 
-  name: 
   allDialogue:
   - npcDialogue:
     - npcDialogue: This shizzle will never work.........
       playerResponse:
-        testBool: 0
-        playerDialogue:
-        - No no you're wrong, one day it will work!
-        - You're right..
-        npcResponse:
-          playerDialogue: 
-    - npcDialogue: 
-      playerResponse:
-        testBool: 0
-        playerDialogue: []
-        npcResponse:
-          playerDialogue: 
-  dialogue:
-  - 'TEst
-
-'
-  - 2
-  playerResponse:
-    testBool: 0
-    playerDialogue: []
-    npcResponse:
-      playerDialogue: 
+        name: You
+        positiveResponse:
+          reactPositive: No no you're wrong, one day it will work!
+          npcResponse:
+            responseNPC: Okay, I'll try!!!
+        negativeResponse:
+          reactNegative: You're right..
+          npcResponse:
+            responseNPC: I guess I'll give up then...

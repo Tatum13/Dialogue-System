@@ -15,14 +15,15 @@ MonoBehaviour:
   name: 
   allDialogue:
   - npcDialogue:
-    - npcDialogue: 
-      playerResponse:
-        testBool: 0
-        playerDialogue: []
     - npcDialogue: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       playerResponse:
-        testBool: 0
+        name: You
         playerDialogue:
         - jjjjjjjjjjjjjjjj
-  dialogue:
-  - aaaaaaaaaaa
+        npcResponse:
+          npcResponse: 
+  playerResponse:
+    name: 
+    playerDialogue: []
+    npcResponse:
+      npcResponse: 

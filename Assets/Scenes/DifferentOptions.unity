@@ -372,7 +372,6 @@ MonoBehaviour:
   _dialogueManager: {fileID: 0}
   npcFinder: {fileID: 0}
   choiceButtons: {fileID: 0}
-  name: 
   isPlayerResponse: 0
   playerResponseOrder: -1
 --- !u!4 &31713709
@@ -1294,10 +1293,10 @@ MonoBehaviour:
   _allDialogue:
     npcDialogue: []
   playerResponse:
-    testBool: 0
+    name: 
     playerDialogue: []
     npcResponse:
-      playerDialogue: 
+      npcResponse: 
   radius: {x: 2, y: 1.6, z: 2}
 --- !u!114 &318076069
 MonoBehaviour:
@@ -1314,7 +1313,6 @@ MonoBehaviour:
   _dialogueManager: {fileID: 318076067}
   npcFinder: {fileID: 318076068}
   choiceButtons: {fileID: 645013854}
-  name: Berend
   isPlayerResponse: 0
   playerResponseOrder: -1
 --- !u!1 &361480711
@@ -2742,7 +2740,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 318076069}
         m_TargetAssemblyTypeName: ChoiceManager, Assembly-CSharp
-        m_MethodName: FirstPlayerResponse
+        m_MethodName: PositivePlayerResponse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4019,7 +4017,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 318076069}
         m_TargetAssemblyTypeName: ChoiceManager, Assembly-CSharp
-        m_MethodName: SecondPlayerResponse
+        m_MethodName: NegativePlayerResponse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
