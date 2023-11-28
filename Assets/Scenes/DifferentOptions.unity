@@ -340,54 +340,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13385282}
   m_CullTransparentMesh: 1
---- !u!1 &31713707
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 31713709}
-  - component: {fileID: 31713708}
-  m_Layer: 0
-  m_Name: TextInUnityTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &31713708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31713707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20fbe3416f0966c4dab8847397536509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogueManager: {fileID: 0}
-  npcFinder: {fileID: 0}
-  choiceButtons: {fileID: 0}
-  isPlayerResponse: 0
-  playerResponseOrder: -1
---- !u!4 &31713709
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31713707}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 431.91623, y: 199.30458, z: 200.20007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &131775171
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +742,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 31713708}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Choice, Assembly-CSharp
         m_MethodName: TestChoice1
         m_Mode: 1
@@ -1144,7 +1096,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &318076061
 CapsuleCollider:
@@ -1293,10 +1245,15 @@ MonoBehaviour:
   _allDialogue:
     npcDialogue: []
   playerResponse:
-    name: 
-    playerDialogue: []
-    npcResponse:
-      npcResponse: 
+    namePlayer: 
+    positiveResponse:
+      reactPositive: 
+      npcResponse:
+        responseNPC: 
+    negativeResponse:
+      reactNegative: 
+      npcResponse:
+        responseNPC: 
   radius: {x: 2, y: 1.6, z: 2}
 --- !u!114 &318076069
 MonoBehaviour:
@@ -1312,8 +1269,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueManager: {fileID: 318076067}
   npcFinder: {fileID: 318076068}
+  npcName: {fileID: 0}
   choiceButtons: {fileID: 645013854}
   isPlayerResponse: 0
+  isNPCResponse: 0
   playerResponseOrder: -1
 --- !u!1 &361480711
 GameObject:
@@ -1398,7 +1357,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 31713708}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Choice, Assembly-CSharp
         m_MethodName: TestChoice2
         m_Mode: 1
@@ -2128,7 +2087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 31713708}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Choice, Assembly-CSharp
         m_MethodName: TestChoice3
         m_Mode: 1
@@ -2317,7 +2276,7 @@ Transform:
   m_Children:
   - {fileID: 1467982051}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852444147
 GameObject:
@@ -2487,7 +2446,7 @@ Transform:
   - {fileID: 1130421335}
   - {fileID: 1592998152}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946624491
 GameObject:
@@ -3213,7 +3172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373757782
 GameObject:
@@ -4161,7 +4120,7 @@ RectTransform:
   - {fileID: 444769119}
   - {fileID: 2003703385}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

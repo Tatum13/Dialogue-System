@@ -16,12 +16,14 @@ MonoBehaviour:
   - npcDialogue:
     - npcDialogue: This shizzle will never work.........
       playerResponse:
-        name: You
+        namePlayer: You
         positiveResponse:
           reactPositive: No no you're wrong, one day it will work!
           npcResponse:
+            nameNPC: 
             responseNPC: Okay, I'll try!!!
         negativeResponse:
           reactNegative: You're right..
           npcResponse:
+            nameNPC: 
             responseNPC: I guess I'll give up then...

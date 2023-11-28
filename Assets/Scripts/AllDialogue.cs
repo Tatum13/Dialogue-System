@@ -25,6 +25,6 @@ public struct NPCDialogue
 public struct NPCResponse
 {
     [TextArea(0,15), SerializeField] private string responseNPC;
-
+    
     public string ResponseNpc => responseNPC;
 }

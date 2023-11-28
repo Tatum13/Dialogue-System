@@ -21,9 +21,11 @@ public class InputManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && _dialogueManager._isTalking == false) _dialogueManager.OnStartConversation();
         else if(Input.GetKeyDown(KeyCode.E)) _dialogueManager.Next();
-        else if(Input.GetKeyDown(KeyCode.E) && _choiceManager.isPlayerResponse) _choiceManager.GoToNPCResponse();
-        //else if(Input.GetKeyDown(KeyCode.F)) _choiceManager.ResetDialogue();
-        //else if(Input.GetKeyDown(KeyCode.F)) _choiceManager.NextPlayerDialogue();
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            
+            _choiceManager.GoToNpcResponse();
+        }
         else if(Input.GetKeyDown(KeyCode.T)) _dialogueManager.Previous();
         else if (Input.GetKeyDown(KeyCode.E) && _dialogueManager._isTalking) _dialogueManager.OnEndConversation();
     }

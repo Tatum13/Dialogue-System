@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class ChoiceManager : MonoBehaviour
@@ -5,39 +7,74 @@ public class ChoiceManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private NPCFinder npcFinder;
+    [SerializeField] TMP_Text npcName;
     public GameObject choiceButtons;
 
     [Header("Player Settings")]
     public bool isPlayerResponse;
 
+    public bool isNPCResponse;
+
     [HideInInspector] public int playerResponseOrder = -1;
 
+    public bool isPressed;
+    
     private AllDialogue _allDialogue;
+    private bool _isNegativeResponse;
+    private bool _isPositiveResponse;
+
+    private void Update() => EveryPlayerResponse();
 
     public void PositivePlayerResponse()
     {
-        isPlayerResponse = true;
-        choiceButtons.SetActive(false);
-        _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.Name;
-        if (isPlayerResponse)
-        {
-            _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PositiveResponse.ReactPositive;
-        }
+        isPressed = true;
+        _isPositiveResponse = true;
     }
 
     public void NegativePlayerResponse()
     {
-        isPlayerResponse = true;
-        choiceButtons.SetActive(false);
-        _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.Name;
-        if (isPlayerResponse)
+        isPressed = true;
+        _isNegativeResponse = true;
+    }
+
+    private void EveryPlayerResponse()
+    {
+        if (isPressed)
         {
-            _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.NegativeResponse.ReactNegative;
+            choiceButtons.SetActive(false);
+            isPlayerResponse = true;
+            _dialogueManager._isTalking = false;
+
+            _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
+                NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.NamePlayer;
+        
+            if (isPlayerResponse && _isPositiveResponse)
+            {
+                _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
+                    NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PositiveResponse.ReactPositive;
+            }
+            else if (isPlayerResponse && _isNegativeResponse)
+            {
+                _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
+                    NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.NegativeResponse.ReactNegative;
+            }
+        }
+        else
+        {
+            return;
         }
     }
 
-    public void GoToNPCResponse()
+    public void GoToNpcResponse()
     {
-        _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PositiveResponse.NpcResponse.ResponseNpc;
+        isPlayerResponse = false;
+        _dialogueManager._isTalking = false;
+        isNPCResponse = true;
+        _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.name; 
+        if (isNPCResponse)
+        {
+            _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
+                NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PositiveResponse.NpcResponse.ResponseNpc;
+        }
     }
 }

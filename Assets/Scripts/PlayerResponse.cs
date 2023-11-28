@@ -4,13 +4,13 @@ using UnityEngine;
 [Serializable]
 public struct PlayerResponse
 {
-    [SerializeField] private string name;
+    [SerializeField] private string namePlayer;
     [Space]
     [SerializeField] private PositiveResponse positiveResponse;
     [Space]
     [SerializeField] private NegativeResponse negativeResponse;
 
-    public string Name => name;
+    public string NamePlayer => namePlayer;
 
     public PositiveResponse PositiveResponse => positiveResponse;
     public NegativeResponse NegativeResponse => negativeResponse;
