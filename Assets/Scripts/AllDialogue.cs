@@ -11,7 +11,7 @@ public struct AllDialogue
 }
 
 [Serializable]
-public struct NPCDialogue
+public class NPCDialogue
 {
     [TextArea(0,15), SerializeField] private string npcDialogue;
     [Space]

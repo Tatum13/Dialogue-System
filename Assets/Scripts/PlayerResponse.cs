@@ -20,18 +20,18 @@ public struct PlayerResponse
 public struct PositiveResponse
 {
     [TextArea(0,15), SerializeField] private string reactPositive;
-    [SerializeField] private NPCResponse npcResponse;
+    [SerializeField] private NPCDialogue npcResponse;
 
     public string ReactPositive => reactPositive;
-    public NPCResponse NpcResponse => npcResponse;
+    public NPCDialogue NpcResponse => npcResponse;
 }
 
 [Serializable]
 public struct NegativeResponse
 {
     [TextArea(0,15), SerializeField] private string reactNegative;
-    [SerializeField] private NPCResponse npcResponse;
+    [SerializeField] private NPCDialogue npcResponse;
 
     public string ReactNegative => reactNegative;
-    public NPCResponse NpcResponse => npcResponse;
+    public NPCDialogue NpcResponse => npcResponse;
 }

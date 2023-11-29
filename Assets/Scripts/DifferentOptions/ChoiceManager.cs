@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -74,7 +73,7 @@ public class ChoiceManager : MonoBehaviour
         if (isNPCResponse)
         {
             _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
-                NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PositiveResponse.NpcResponse.ResponseNpc;
+                NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PositiveResponse.NpcResponse.NpcDialogue;
         }
     }
 }
