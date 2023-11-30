@@ -9,11 +9,19 @@ public struct PlayerResponse
     [SerializeField] private PositiveResponse positiveResponse;
     [Space]
     [SerializeField] private NegativeResponse negativeResponse;
-
+    
     public string NamePlayer => namePlayer;
 
     public PositiveResponse PositiveResponse => positiveResponse;
     public NegativeResponse NegativeResponse => negativeResponse;
+
+    public PlayerResponse(string targetName = "You")
+    {
+        namePlayer = targetName;
+
+        positiveResponse = new PositiveResponse();
+        negativeResponse = new NegativeResponse();
+    }
 }
 
 [Serializable]

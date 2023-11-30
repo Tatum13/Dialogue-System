@@ -22,21 +22,21 @@ MonoBehaviour:
           npcResponse:
             npcDialogue: Yushh
             playerResponse:
-              namePlayer: 
+              namePlayer: You
               positiveResponse:
-                reactPositive: 
+                reactPositive: Frietjes - Tatum
                 npcResponse:
-                  npcDialogue: 
+                  npcDialogue: PATATJE - Bas
                   playerResponse:
                     namePlayer: 
                     positiveResponse:
-                      reactPositive: 
+                      reactPositive: gekke test
                       npcResponse:
-                        npcDialogue: 
+                        npcDialogue: aaaaaaa
                         playerResponse:
                           namePlayer: 
                           positiveResponse:
-                            reactPositive: 
+                            reactPositive: bbbbb
                           negativeResponse:
                             reactNegative: 
                     negativeResponse:
@@ -50,9 +50,9 @@ MonoBehaviour:
                           negativeResponse:
                             reactNegative: 
               negativeResponse:
-                reactNegative: 
+                reactNegative: PATATJE NO
                 npcResponse:
-                  npcDialogue: 
+                  npcDialogue: AAAAAA
                   playerResponse:
                     namePlayer: 
                     positiveResponse:
@@ -80,7 +80,7 @@ MonoBehaviour:
           npcResponse:
             npcDialogue: nopee
             playerResponse:
-              namePlayer: 
+              namePlayer: You
               positiveResponse:
                 reactPositive: 
                 npcResponse:
@@ -108,9 +108,9 @@ MonoBehaviour:
                           negativeResponse:
                             reactNegative: 
               negativeResponse:
-                reactNegative: 
+                reactNegative: Wauw meannnn
                 npcResponse:
-                  npcDialogue: 
+                  npcDialogue: So true
                   playerResponse:
                     namePlayer: 
                     positiveResponse:
@@ -124,7 +124,7 @@ MonoBehaviour:
                           negativeResponse:
                             reactNegative: 
                     negativeResponse:
-                      reactNegative: 
+                      reactNegative: I mean yessss
                       npcResponse:
                         npcDialogue: 
                         playerResponse:

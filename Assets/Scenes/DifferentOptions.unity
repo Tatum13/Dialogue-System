@@ -1249,11 +1249,119 @@ MonoBehaviour:
     positiveResponse:
       reactPositive: 
       npcResponse:
-        responseNPC: 
+        npcDialogue: 
+        playerResponse:
+          namePlayer: 
+          positiveResponse:
+            reactPositive: 
+            npcResponse:
+              npcDialogue: 
+              playerResponse:
+                namePlayer: 
+                positiveResponse:
+                  reactPositive: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
+                negativeResponse:
+                  reactNegative: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
+          negativeResponse:
+            reactNegative: 
+            npcResponse:
+              npcDialogue: 
+              playerResponse:
+                namePlayer: 
+                positiveResponse:
+                  reactPositive: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
+                negativeResponse:
+                  reactNegative: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
     negativeResponse:
       reactNegative: 
       npcResponse:
-        responseNPC: 
+        npcDialogue: 
+        playerResponse:
+          namePlayer: 
+          positiveResponse:
+            reactPositive: 
+            npcResponse:
+              npcDialogue: 
+              playerResponse:
+                namePlayer: 
+                positiveResponse:
+                  reactPositive: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
+                negativeResponse:
+                  reactNegative: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
+          negativeResponse:
+            reactNegative: 
+            npcResponse:
+              npcDialogue: 
+              playerResponse:
+                namePlayer: 
+                positiveResponse:
+                  reactPositive: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
+                negativeResponse:
+                  reactNegative: 
+                  npcResponse:
+                    npcDialogue: 
+                    playerResponse:
+                      namePlayer: 
+                      positiveResponse:
+                        reactPositive: 
+                      negativeResponse:
+                        reactNegative: 
   radius: {x: 2, y: 1.6, z: 2}
 --- !u!114 &318076069
 MonoBehaviour:
@@ -1274,6 +1382,7 @@ MonoBehaviour:
   isPlayerResponse: 0
   isNPCResponse: 0
   playerResponseOrder: -1
+  isPressed: 0
 --- !u!1 &361480711
 GameObject:
   m_ObjectHideFlags: 0
