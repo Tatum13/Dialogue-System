@@ -47,7 +47,7 @@ public class ChoiceManager : MonoBehaviour
             isPressed = false;
             choiceButtons.SetActive(false);
             isPlayerResponse = true;
-            _dialogueManager._isTalking = false;
+            _dialogueManager._isTalking = true;
 
             _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
                 NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.NamePlayer;
@@ -87,6 +87,7 @@ public class ChoiceManager : MonoBehaviour
         _dialogueManager._isTalking = false;
         _isPositiveResponse = false;
         _isNegativeResponse = false;
+        _dialogueManager._isTalking = true;
         isNPCResponse = true;
 
         _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.name;
