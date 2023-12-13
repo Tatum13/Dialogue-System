@@ -17,16 +17,10 @@ public struct PlayerResponse
 
     public bool HasMoreDialogue()
     {
-        if (positiveResponse.NpcResponse == null && negativeResponse.NpcResponse == null)
-        {
-            return false;
-        }
-        if (positiveResponse.NpcResponse.NpcDialogue == string.Empty && negativeResponse.NpcResponse.NpcDialogue == string.Empty)
-        {
-            return false;
-        }
-
-        return true;
+        return (positiveResponse.NpcResponse != null 
+                || negativeResponse.NpcResponse != null) 
+               && (positiveResponse.NpcResponse.NpcDialogue != string.Empty 
+                   || negativeResponse.NpcResponse.NpcDialogue != string.Empty);
     }
 
     public PlayerResponse(string targetName = "You")

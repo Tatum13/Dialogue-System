@@ -40,7 +40,7 @@ MonoBehaviour:
                           negativeResponse:
                             reactNegative: 
                     negativeResponse:
-                      reactNegative: 
+                      reactNegative: Toestenbord rammen!!!!!!!!!!!
                       npcResponse:
                         npcDialogue: 
                         playerResponse:
@@ -56,9 +56,9 @@ MonoBehaviour:
                   playerResponse:
                     namePlayer: 
                     positiveResponse:
-                      reactPositive: 
+                      reactPositive: gekke test part 1
                       npcResponse:
-                        npcDialogue: 
+                        npcDialogue: SOOOO TRUEEEEEEEE
                         playerResponse:
                           namePlayer: 
                           positiveResponse:
@@ -66,9 +66,9 @@ MonoBehaviour:
                           negativeResponse:
                             reactNegative: 
                     negativeResponse:
-                      reactNegative: 
+                      reactNegative: KIEKEBOEE
                       npcResponse:
-                        npcDialogue: 
+                        npcDialogue: AAAAAAAAAAA
                         playerResponse:
                           namePlayer: 
                           positiveResponse:

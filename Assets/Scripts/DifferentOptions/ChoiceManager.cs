@@ -84,8 +84,6 @@ public class ChoiceManager : MonoBehaviour
     public void GoToNpcResponse()
     {
         isPlayerResponse = false;
-        _isPositiveResponse = false;
-        _isNegativeResponse = false;
         _dialogueManager._isTalking = true;
         isNPCResponse = true;
 
@@ -100,23 +98,32 @@ public class ChoiceManager : MonoBehaviour
 
         if (!_currentPlayerResponse.HasMoreDialogue())
         {
-            _firstNPCDialogue = true;
-            _currentPlayerResponse = new PlayerResponse();
-            _dialogueManager.OnEndConversation();
+            ResetDialogue();
             return;
         }
         
-        if (isNPCResponse && !_isPositiveResponse)
+        switch (isNPCResponse)
         {
-            choiceButtons.SetActive(true);
-            _dialogueManager.dialogueBox.text = _currentPlayerResponse.PositiveResponse.NpcResponse.NpcDialogue;
-            _currentPlayerResponse = _currentPlayerResponse.PositiveResponse.NpcResponse.PlayerResponse;
+            case true when _isPositiveResponse:
+                choiceButtons.SetActive(true);
+                _dialogueManager.dialogueBox.text = _currentPlayerResponse.PositiveResponse.NpcResponse.NpcDialogue;
+                _currentPlayerResponse = _currentPlayerResponse.PositiveResponse.NpcResponse.PlayerResponse;
+                break;
+            case true when _isNegativeResponse:
+                choiceButtons.SetActive(true);
+                _dialogueManager.dialogueBox.text = _currentPlayerResponse.NegativeResponse.NpcResponse.NpcDialogue;
+                _currentPlayerResponse = _currentPlayerResponse.NegativeResponse.NpcResponse.PlayerResponse;
+                break;
         }
-        else if (isNPCResponse && !_isNegativeResponse)
-        {
-            choiceButtons.SetActive(true);
-            _dialogueManager.dialogueBox.text = _currentPlayerResponse.NegativeResponse.NpcResponse.NpcDialogue;
-            _currentPlayerResponse = _currentPlayerResponse.NegativeResponse.NpcResponse.PlayerResponse;
-        }
+        
+        _isPositiveResponse = false;
+        _isNegativeResponse = false;
+    }
+
+    private void ResetDialogue()
+    {
+        _firstNPCDialogue = true;
+        _currentPlayerResponse = new PlayerResponse();
+        _dialogueManager.OnEndConversation();
     }
 }
