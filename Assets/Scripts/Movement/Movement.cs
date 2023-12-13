@@ -3,6 +3,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private float currentMovementSpeed;
     
     private Vector3 _moveDirection;
@@ -15,6 +16,7 @@ public class Movement : MonoBehaviour
     {
         SetInput();
         SetMoveDirection();
+        StopMoving();
     }
 
     private void SetInput()
@@ -29,5 +31,10 @@ public class Movement : MonoBehaviour
         _moveDirection.y = _velocity.y;
         
         characterController.Move(_moveDirection * Time.deltaTime);
+    }
+
+    private void StopMoving()
+    {
+        if (dialogueManager._isTalking) currentMovementSpeed = 0;
     }
 }

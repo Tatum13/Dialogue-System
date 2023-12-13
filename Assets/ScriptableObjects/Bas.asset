@@ -15,12 +15,51 @@ MonoBehaviour:
   name: 
   allDialogue:
   - npcDialogue:
-    - Kijk luister!
-    - Koffie of thee? Dat is de echte vraag!
-    - Dan met of zonder patatje?
-    - Zolang er maar geen ananas op zit!
-    - ....................
-    - Dat is de lekkerste pizza
-    - Met vriendelijke groet, Idioot 1!
-    playerResponse: []
-  dialogue: []
+    - npcDialogue: 
+      playerResponse:
+        name: You
+        playerDialogue: []
+        npcResponse:
+          npcResponse: 
+    - npcDialogue: ffffyfyfyvv
+      playerResponse:
+        name: 
+        playerDialogue:
+        - dcyfdy
+        npcResponse:
+          npcResponse: 
+    - npcDialogue: 
+      playerResponse:
+        name: 
+        playerDialogue: []
+        npcResponse:
+          npcResponse: 
+    - npcDialogue: 
+      playerResponse:
+        name: 
+        playerDialogue: []
+        npcResponse:
+          npcResponse: 
+    - npcDialogue: 
+      playerResponse:
+        name: 
+        playerDialogue: []
+        npcResponse:
+          npcResponse: 
+    - npcDialogue: 
+      playerResponse:
+        name: 
+        playerDialogue: []
+        npcResponse:
+          npcResponse: 
+    - npcDialogue: 
+      playerResponse:
+        name: 
+        playerDialogue: []
+        npcResponse:
+          npcResponse: 
+  playerResponse:
+    name: 
+    playerDialogue: []
+    npcResponse:
+      npcResponse: 

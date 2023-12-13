@@ -12,16 +12,124 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054776ecf32a7334fa788f88c0028fd6, type: 3}
   m_Name: Tatum
   m_EditorClassIdentifier: 
-  name: 
   allDialogue:
   - npcDialogue:
-    - 'Gegroet '
-    - Ik ben de gingerbread
-    playerResponse:
-    - Yo
-    - Test2
-  dialogue:
-  - 'TEst
-
-'
-  - 2
+    - npcDialogue: This shizzle will never work.........
+      playerResponse:
+        namePlayer: You
+        positiveResponse:
+          reactPositive: No no you're wrong, one day it will work!
+          npcResponse:
+            npcDialogue: Pfff sureeeeeeeeee
+            playerResponse:
+              namePlayer: You
+              positiveResponse:
+                reactPositive: Frietjes - Tatum
+                npcResponse:
+                  npcDialogue: PATATJE - Bas
+                  playerResponse:
+                    namePlayer: 
+                    positiveResponse:
+                      reactPositive: gekke test
+                      npcResponse:
+                        npcDialogue: aaaaaaa
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: bbbbb
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: Toestenbord rammen!!!!!!!!!!!
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+              negativeResponse:
+                reactNegative: PATATJE NO
+                npcResponse:
+                  npcDialogue: AAAAAA
+                  playerResponse:
+                    namePlayer: 
+                    positiveResponse:
+                      reactPositive: gekke test part 1
+                      npcResponse:
+                        npcDialogue: SOOOO TRUEEEEEEEE
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: KIEKEBOEE
+                      npcResponse:
+                        npcDialogue: AAAAAAAAAAA
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+        negativeResponse:
+          reactNegative: You're right..
+          npcResponse:
+            npcDialogue: nopee
+            playerResponse:
+              namePlayer: You
+              positiveResponse:
+                reactPositive: 
+                npcResponse:
+                  npcDialogue: 
+                  playerResponse:
+                    namePlayer: 
+                    positiveResponse:
+                      reactPositive: 
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: 
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+              negativeResponse:
+                reactNegative: Wauw meannnn
+                npcResponse:
+                  npcDialogue: So true
+                  playerResponse:
+                    namePlayer: 
+                    positiveResponse:
+                      reactPositive: 
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: I mean yessss
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 

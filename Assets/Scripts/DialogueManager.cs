@@ -4,18 +4,16 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private NPCFinder npcFinder;
-    [SerializeField] private GameObject dialogueUI;
-    [SerializeField] private TMP_Text npcName;
-    [SerializeField] private TMP_Text dialogueBox;
-    
+    public NPCFinder npcFinder;
+    public TMP_Text dialogueBox;
     public GameObject inputIndication;
+    public TMP_Text npcName;
+    [SerializeField] private GameObject dialogueUI;
 
     [Header("Player Settings")]
     [SerializeField] private float currentResponseTracker = 0;
-    [SerializeField] private string playerResponse;
     [TextArea (0,15), SerializeField] private string response;
-
+    
     [HideInInspector] public int _dialogueOrder = -1;
     
     [Header("Checks")]
@@ -23,13 +21,12 @@ public class DialogueManager : MonoBehaviour
     public bool _isTalking;
 
     private void Start() => dialogueUI.SetActive(false);
-    
-    private void UpdateText() => dialogueBox.text =  npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder];
 
+    private void UpdateText() => dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder].NpcDialogue;
+    
     public void OnStartConversation()
     {
         _isTalking = true;
-        if(_isTalking) inputIndication.SetActive(false);
         currentResponseTracker = 0;
         dialogueUI.SetActive(true);
         npcName.text = npcFinder.GetNPCName._npc.name;
@@ -40,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         _dialogueOrder++;
         
-        if(_dialogueOrder >= npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue.Length)
+        if(_dialogueOrder >= npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue.Count)
         {
             OnEndConversation();
             return;

@@ -15,9 +15,15 @@ MonoBehaviour:
   name: 
   allDialogue:
   - npcDialogue:
-    - Het speelt niet lekker.
-    - Begin maar weer helemaal opnieuw.
-    playerResponse:
-    - a
-  dialogue:
-  - aaaaaaaaaaa
+    - npcDialogue: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      playerResponse:
+        name: You
+        playerDialogue:
+        - jjjjjjjjjjjjjjjj
+        npcResponse:
+          npcResponse: 
+  playerResponse:
+    name: 
+    playerDialogue: []
+    npcResponse:
+      npcResponse: 
