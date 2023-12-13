@@ -19,14 +19,14 @@ public class InputManager : MonoBehaviour
     
     private void InteractionInput()
     {
-        if(Input.GetKeyDown(KeyCode.E) && _dialogueManager._isTalking == false) _dialogueManager.OnStartConversation();
-        else if(Input.GetKeyDown(KeyCode.E)) _dialogueManager.Next();
-        else if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E) && !_dialogueManager._isTalking)
         {
-            
+            _choiceManager.choiceButtons.SetActive(true);
+            _dialogueManager.OnStartConversation();
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && _dialogueManager._isTalking)
+        {
             _choiceManager.GoToNpcResponse();
         }
-        else if(Input.GetKeyDown(KeyCode.T)) _dialogueManager.Previous();
-        else if (Input.GetKeyDown(KeyCode.E) && _dialogueManager._isTalking) _dialogueManager.OnEndConversation();
     }
 }

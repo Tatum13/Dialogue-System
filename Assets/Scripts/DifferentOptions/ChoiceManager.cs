@@ -69,14 +69,18 @@ public class ChoiceManager : MonoBehaviour
             }
             else
             {
-                if (isPlayerResponse && _isPositiveResponse)
+                if (!_currentPlayerResponse.HasMorePlayerDialogue())
                 {
-                    _dialogueManager.dialogueBox.text = _currentPlayerResponse.PositiveResponse.ReactPositive;
+                    ResetDialogue();
+                    return;
                 }
-                else if (isPlayerResponse && _isNegativeResponse)
+
+                _dialogueManager.dialogueBox.text = isPlayerResponse switch
                 {
-                    _dialogueManager.dialogueBox.text = _currentPlayerResponse.NegativeResponse.ReactNegative;
-                }
+                    true when _isPositiveResponse => _currentPlayerResponse.PositiveResponse.ReactPositive,
+                    true when _isNegativeResponse => _currentPlayerResponse.NegativeResponse.ReactNegative,
+                    _ => _dialogueManager.dialogueBox.text
+                };
             }
         }
     }
@@ -96,7 +100,7 @@ public class ChoiceManager : MonoBehaviour
             _firstNPCDialogue = false;
         }
 
-        if (!_currentPlayerResponse.HasMoreDialogue())
+        if (!_currentPlayerResponse.HasMoreNpcDialogue())
         {
             ResetDialogue();
             return;
@@ -122,8 +126,14 @@ public class ChoiceManager : MonoBehaviour
 
     private void ResetDialogue()
     {
-        _firstNPCDialogue = true;
         _currentPlayerResponse = new PlayerResponse();
+        _firstNPCDialogue = true;
+        _firstPlayerDialogue = true;
+        isPlayerResponse = false;
+        isNPCResponse = false;
+        _isPositiveResponse = false;
+        _isNegativeResponse = false;
+        _dialogueManager._isTalking = false;
         _dialogueManager.OnEndConversation();
     }
 }
