@@ -15,6 +15,20 @@ public struct PlayerResponse
     public PositiveResponse PositiveResponse => positiveResponse;
     public NegativeResponse NegativeResponse => negativeResponse;
 
+    public bool HasMoreDialogue()
+    {
+        if (positiveResponse.NpcResponse == null && negativeResponse.NpcResponse == null)
+        {
+            return false;
+        }
+        if (positiveResponse.NpcResponse.NpcDialogue == string.Empty && negativeResponse.NpcResponse.NpcDialogue == string.Empty)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     public PlayerResponse(string targetName = "You")
     {
         namePlayer = targetName;

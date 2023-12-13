@@ -20,7 +20,7 @@ MonoBehaviour:
         positiveResponse:
           reactPositive: No no you're wrong, one day it will work!
           npcResponse:
-            npcDialogue: Yushh
+            npcDialogue: Pfff sureeeeeeeeee
             playerResponse:
               namePlayer: You
               positiveResponse:

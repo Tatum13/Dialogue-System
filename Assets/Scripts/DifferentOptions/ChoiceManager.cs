@@ -84,7 +84,6 @@ public class ChoiceManager : MonoBehaviour
     public void GoToNpcResponse()
     {
         isPlayerResponse = false;
-        _dialogueManager._isTalking = false;
         _isPositiveResponse = false;
         _isNegativeResponse = false;
         _dialogueManager._isTalking = true;
@@ -99,6 +98,14 @@ public class ChoiceManager : MonoBehaviour
             _firstNPCDialogue = false;
         }
 
+        if (!_currentPlayerResponse.HasMoreDialogue())
+        {
+            _firstNPCDialogue = true;
+            _currentPlayerResponse = new PlayerResponse();
+            _dialogueManager.OnEndConversation();
+            return;
+        }
+        
         if (isNPCResponse && !_isPositiveResponse)
         {
             choiceButtons.SetActive(true);

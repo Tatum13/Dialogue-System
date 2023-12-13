@@ -1174,6 +1174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 318076065}
+  dialogueManager: {fileID: 318076067}
   currentMovementSpeed: 5
 --- !u!143 &318076065
 CharacterController:
