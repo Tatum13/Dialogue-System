@@ -10,34 +10,29 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text npcName;
     [SerializeField] private GameObject dialogueUI;
 
-    [Header("Player Settings")]
-    [SerializeField] private float currentResponseTracker = 0;
-    [TextArea (0,15), SerializeField] private string response;
-    
-    [HideInInspector] public int _dialogueOrder = -1;
+    [HideInInspector] public int dialogueOrder = -1;
     
     [Header("Checks")]
-    public bool _isWithinRadius;
-    public bool _isTalking;
+    public bool isWithinRadius;
+    public bool isTalking;
 
     private void Start() => dialogueUI.SetActive(false);
 
-    private void UpdateText() => dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue[_dialogueOrder].NpcDialogue;
+    private void UpdateText() => dialogueBox.text = npcFinder.GetNpcName.npc.AllDialogue[npcFinder.firstNPCDialogue].NpcDialogue[dialogueOrder].NpcDialogue;
     
     public void OnStartConversation()
     {
-        _isTalking = true;
-        currentResponseTracker = 0;
+        isTalking = true;
         dialogueUI.SetActive(true);
-        npcName.text = npcFinder.GetNPCName._npc.name;
+        npcName.text = npcFinder.GetNpcName.npc.name;
         Next();
     }
 
-    public void Next()
+    private void Next()
     {
-        _dialogueOrder++;
+        dialogueOrder++;
         
-        if(_dialogueOrder >= npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].NPCDialogue.Count)
+        if(dialogueOrder >= npcFinder.GetNpcName.npc.AllDialogue[npcFinder.firstNPCDialogue].NpcDialogue.Count)
         {
             OnEndConversation();
             return;
@@ -47,17 +42,17 @@ public class DialogueManager : MonoBehaviour
 
     public void Previous()
     {
-        _dialogueOrder--;
-        if(_dialogueOrder < 0) _dialogueOrder = 0; 
+        dialogueOrder--;
+        if(dialogueOrder < 0) dialogueOrder = 0; 
         UpdateText();
     }
 
     public void OnEndConversation()
     {
-        _isTalking = false;
+        isTalking = false;
         dialogueUI.SetActive(false);
         Reset();
     }
 
-    private void Reset() => _dialogueOrder = -1;
+    private void Reset() => dialogueOrder = -1;
 }

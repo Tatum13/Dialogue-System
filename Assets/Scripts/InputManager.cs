@@ -13,18 +13,18 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if(!_dialogueManager._isWithinRadius) return;
+        if(!_dialogueManager.isWithinRadius) return;
         InteractionInput();
     }
     
     private void InteractionInput()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !_dialogueManager._isTalking)
+        if (Input.GetKeyDown(KeyCode.E) && !_dialogueManager.isTalking)
         {
             _choiceManager.choiceButtons.SetActive(true);
             _dialogueManager.OnStartConversation();
         }
-        else if (Input.GetKeyDown(KeyCode.E) && _dialogueManager._isTalking)
+        else if (Input.GetKeyDown(KeyCode.E) && _dialogueManager.isTalking)
         {
             _choiceManager.GoToNpcResponse();
         }

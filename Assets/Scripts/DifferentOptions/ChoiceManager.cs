@@ -6,22 +6,16 @@ public class ChoiceManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private NPCFinder npcFinder;
-    [SerializeField] TMP_Text npcName;
     public GameObject choiceButtons;
 
     [Header("Player Settings")]
     public bool isPlayerResponse;
-
-    public bool isNPCResponse;
-
-    [HideInInspector] public int playerResponseOrder = -1;
-
+    public bool isNpcResponse;
     public bool isPressed;
     
-    private AllDialogue _allDialogue;
     private bool _isNegativeResponse;
     private bool _isPositiveResponse;
-    private bool _firstNPCDialogue = true;
+    private bool _firstNpcDialogue = true;
     private bool _firstPlayerDialogue = true;
 
     private PlayerResponse _currentPlayerResponse;
@@ -42,62 +36,60 @@ public class ChoiceManager : MonoBehaviour
 
     private void EveryPlayerResponse()
     {
-        if (isPressed)
+        if (!isPressed) return;
+        isPressed = false;
+        choiceButtons.SetActive(false);
+        isPlayerResponse = true;
+        _dialogueManager.isTalking = true;
+
+        _dialogueManager.npcName.text = npcFinder.GetNpcName.npc.AllDialogue[npcFinder.firstNPCDialogue].
+            NpcDialogue[_dialogueManager.dialogueOrder].PlayerResponse.NamePlayer;
+
+        if (_firstPlayerDialogue)
         {
-            isPressed = false;
-            choiceButtons.SetActive(false);
-            isPlayerResponse = true;
-            _dialogueManager._isTalking = true;
-
-            _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
-                NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.NamePlayer;
-
-            if (_firstPlayerDialogue)
+            _dialogueManager.dialogueBox.text = isPlayerResponse switch
             {
-                if (isPlayerResponse && _isPositiveResponse)
-                {
-                    _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
-                        NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.PositiveResponse.ReactPositive;
-                }
-                else if (isPlayerResponse && _isNegativeResponse)
-                {
-                    _dialogueManager.dialogueBox.text = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue].
-                        NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse.NegativeResponse.ReactNegative;
-                }
+                true when _isPositiveResponse => npcFinder.GetNpcName.npc.AllDialogue[npcFinder.firstNPCDialogue]
+                    .NpcDialogue[_dialogueManager.dialogueOrder]
+                    .PlayerResponse.PositiveResponse.ReactPositive,
+                true when _isNegativeResponse => npcFinder.GetNpcName.npc.AllDialogue[npcFinder.firstNPCDialogue]
+                    .NpcDialogue[_dialogueManager.dialogueOrder]
+                    .PlayerResponse.NegativeResponse.ReactNegative,
+                _ => _dialogueManager.dialogueBox.text
+            };
 
-                _firstPlayerDialogue = false;
-            }
-            else
+            _firstPlayerDialogue = false;
+        }
+        else
+        {
+            if (!_currentPlayerResponse.HasMorePlayerDialogue())
             {
-                if (!_currentPlayerResponse.HasMorePlayerDialogue())
-                {
-                    ResetDialogue();
-                    return;
-                }
-
-                _dialogueManager.dialogueBox.text = isPlayerResponse switch
-                {
-                    true when _isPositiveResponse => _currentPlayerResponse.PositiveResponse.ReactPositive,
-                    true when _isNegativeResponse => _currentPlayerResponse.NegativeResponse.ReactNegative,
-                    _ => _dialogueManager.dialogueBox.text
-                };
+                ResetDialogue();
+                return;
             }
+
+            _dialogueManager.dialogueBox.text = isPlayerResponse switch
+            {
+                true when _isPositiveResponse => _currentPlayerResponse.PositiveResponse.ReactPositive,
+                true when _isNegativeResponse => _currentPlayerResponse.NegativeResponse.ReactNegative,
+                _ => _dialogueManager.dialogueBox.text
+            };
         }
     }
 
     public void GoToNpcResponse()
     {
         isPlayerResponse = false;
-        _dialogueManager._isTalking = true;
-        isNPCResponse = true;
+        _dialogueManager.isTalking = true;
+        isNpcResponse = true;
 
-        _dialogueManager.npcName.text = npcFinder.GetNPCName._npc.name;
+        _dialogueManager.npcName.text = npcFinder.GetNpcName.npc.name;
 
-        if (_firstNPCDialogue)
+        if (_firstNpcDialogue)
         {
-            _currentPlayerResponse = npcFinder.GetNPCName._npc.AllDialogue[npcFinder.firstNPCDialogue]
-                .NPCDialogue[_dialogueManager._dialogueOrder].PlayerResponse;
-            _firstNPCDialogue = false;
+            _currentPlayerResponse = npcFinder.GetNpcName.npc.AllDialogue[npcFinder.firstNPCDialogue]
+                .NpcDialogue[_dialogueManager.dialogueOrder].PlayerResponse;
+            _firstNpcDialogue = false;
         }
 
         if (!_currentPlayerResponse.HasMoreNpcDialogue())
@@ -106,7 +98,7 @@ public class ChoiceManager : MonoBehaviour
             return;
         }
         
-        switch (isNPCResponse)
+        switch (isNpcResponse)
         {
             case true when _isPositiveResponse:
                 choiceButtons.SetActive(true);
@@ -127,13 +119,13 @@ public class ChoiceManager : MonoBehaviour
     private void ResetDialogue()
     {
         _currentPlayerResponse = new PlayerResponse();
-        _firstNPCDialogue = true;
+        _firstNpcDialogue = true;
         _firstPlayerDialogue = true;
         isPlayerResponse = false;
-        isNPCResponse = false;
+        isNpcResponse = false;
         _isPositiveResponse = false;
         _isNegativeResponse = false;
-        _dialogueManager._isTalking = false;
+        _dialogueManager.isTalking = false;
         _dialogueManager.OnEndConversation();
     }
 }

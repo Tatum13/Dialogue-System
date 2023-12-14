@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
 
     private void StopMoving()
     {
-        if (dialogueManager._isTalking) currentMovementSpeed = 0;
-        if (!dialogueManager._isTalking) currentMovementSpeed = 5;
+        if (dialogueManager.isTalking) currentMovementSpeed = 0;
+        if (!dialogueManager.isTalking) currentMovementSpeed = 5;
     }
 }

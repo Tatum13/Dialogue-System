@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818d78ad9bf794e48820c2f1eb89e655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _npc: {fileID: 11400000, guid: da28ad636a637a84f872a1c6cb1e8051, type: 2}
+  npc: {fileID: 11400000, guid: da28ad636a637a84f872a1c6cb1e8051, type: 2}
 --- !u!1 &173162751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,11 +1223,9 @@ MonoBehaviour:
   inputIndication: {fileID: 1701433102}
   npcName: {fileID: 1531869386}
   dialogueUI: {fileID: 946624491}
-  currentResponseTracker: 0
-  response: Test blabla bla
-  _dialogueOrder: -1
-  _isWithinRadius: 0
-  _isTalking: 0
+  dialogueOrder: -1
+  isWithinRadius: 0
+  isTalking: 0
 --- !u!114 &318076068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,129 +1238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42611f73a3cf8934f8f02c3ebf6b6fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueManager: {fileID: 0}
+  dialogueManager: {fileID: 0}
   choiceManager: {fileID: 318076069}
   npcName: {fileID: 0}
-  _allDialogue:
+  allDialogue:
     npcDialogue: []
-  playerResponse:
-    namePlayer: 
-    positiveResponse:
-      reactPositive: 
-      npcResponse:
-        npcDialogue: 
-        playerResponse:
-          namePlayer: 
-          positiveResponse:
-            reactPositive: 
-            npcResponse:
-              npcDialogue: 
-              playerResponse:
-                namePlayer: 
-                positiveResponse:
-                  reactPositive: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
-                negativeResponse:
-                  reactNegative: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
-          negativeResponse:
-            reactNegative: 
-            npcResponse:
-              npcDialogue: 
-              playerResponse:
-                namePlayer: 
-                positiveResponse:
-                  reactPositive: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
-                negativeResponse:
-                  reactNegative: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
-    negativeResponse:
-      reactNegative: 
-      npcResponse:
-        npcDialogue: 
-        playerResponse:
-          namePlayer: 
-          positiveResponse:
-            reactPositive: 
-            npcResponse:
-              npcDialogue: 
-              playerResponse:
-                namePlayer: 
-                positiveResponse:
-                  reactPositive: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
-                negativeResponse:
-                  reactNegative: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
-          negativeResponse:
-            reactNegative: 
-            npcResponse:
-              npcDialogue: 
-              playerResponse:
-                namePlayer: 
-                positiveResponse:
-                  reactPositive: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
-                negativeResponse:
-                  reactNegative: 
-                  npcResponse:
-                    npcDialogue: 
-                    playerResponse:
-                      namePlayer: 
-                      positiveResponse:
-                        reactPositive: 
-                      negativeResponse:
-                        reactNegative: 
   radius: {x: 2, y: 1.6, z: 2}
 --- !u!114 &318076069
 MonoBehaviour:
@@ -1378,11 +1258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueManager: {fileID: 318076067}
   npcFinder: {fileID: 318076068}
-  npcName: {fileID: 0}
   choiceButtons: {fileID: 645013854}
   isPlayerResponse: 0
-  isNPCResponse: 0
-  playerResponseOrder: -1
+  isNpcResponse: 0
   isPressed: 0
 --- !u!1 &361480711
 GameObject:
@@ -1626,7 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818d78ad9bf794e48820c2f1eb89e655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _npc: {fileID: 11400000, guid: fa9a8833b99d85749bcad8c76cfeb864, type: 2}
+  npc: {fileID: 11400000, guid: fa9a8833b99d85749bcad8c76cfeb864, type: 2}
 --- !u!1 &444769118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,7 +2157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818d78ad9bf794e48820c2f1eb89e655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _npc: {fileID: 11400000, guid: 51733197ab4fcde4ebe9cc717eb3057b, type: 2}
+  npc: {fileID: 11400000, guid: 51733197ab4fcde4ebe9cc717eb3057b, type: 2}
 --- !u!136 &760104419
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2903,7 +2781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818d78ad9bf794e48820c2f1eb89e655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _npc: {fileID: 11400000, guid: 8a3cd7625bd03a447a644216b3227232, type: 2}
+  npc: {fileID: 11400000, guid: 8a3cd7625bd03a447a644216b3227232, type: 2}
 --- !u!136 &1130421337
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3449,7 +3327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818d78ad9bf794e48820c2f1eb89e655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _npc: {fileID: 11400000, guid: 8fced7ab3a32fb547abcb5d98343732c, type: 2}
+  npc: {fileID: 11400000, guid: 8fced7ab3a32fb547abcb5d98343732c, type: 2}
 --- !u!136 &1431574144
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3803,7 +3681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818d78ad9bf794e48820c2f1eb89e655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _npc: {fileID: 11400000, guid: f42872aec3e90114185d7f5fce5db0a2, type: 2}
+  npc: {fileID: 11400000, guid: f42872aec3e90114185d7f5fce5db0a2, type: 2}
 --- !u!136 &1592998154
 CapsuleCollider:
   m_ObjectHideFlags: 0

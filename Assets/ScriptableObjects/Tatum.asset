@@ -54,17 +54,17 @@ MonoBehaviour:
                 npcResponse:
                   npcDialogue: AAAAAA
                   playerResponse:
-                    namePlayer: 
+                    namePlayer: You
                     positiveResponse:
                       reactPositive: gekke test part 1
                       npcResponse:
                         npcDialogue: SOOOO TRUEEEEEEEE
                         playerResponse:
-                          namePlayer: 
+                          namePlayer: You
                           positiveResponse:
-                            reactPositive: 
+                            reactPositive: mehhhhhhh
                           negativeResponse:
-                            reactNegative: 
+                            reactNegative: MWHAHHAHAH
                     negativeResponse:
                       reactNegative: KIEKEBOEE
                       npcResponse:
@@ -82,7 +82,7 @@ MonoBehaviour:
             playerResponse:
               namePlayer: You
               positiveResponse:
-                reactPositive: 
+                reactPositive: .......
                 npcResponse:
                   npcDialogue: 
                   playerResponse:

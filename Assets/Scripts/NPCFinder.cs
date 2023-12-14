@@ -1,34 +1,31 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class NPCFinder : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private ChoiceManager choiceManager;
     [SerializeField] private NPCName npcName;
-    [SerializeField] private AllDialogue _allDialogue;
-    [SerializeField] private PlayerResponse playerResponse;
+    [SerializeField] private AllDialogue allDialogue;
 
     [Header("Player Settings")]
     [SerializeField] private Vector3 radius;
 
     public readonly int firstNPCDialogue = 0;
-    public readonly int firstPlayerResponse = 0;
-    
-    private bool _hasNPCInRange;
 
-    public NPCName GetNPCName => npcName;
+    private bool _hasNpcInRange;
+
+    public NPCName GetNpcName => npcName;
     
     private void Start()
     {
-        _dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
         npcName = FindObjectOfType<NPCName>();
     }
 
     private void Update()
     {
-        FindNPCInRange();
+        FindNpcInRange();
         OnNPCInRange();
     } 
 
@@ -38,39 +35,39 @@ public class NPCFinder : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(3,2,3));
     }
 
-    private void FindNPCInRange()
+    private void FindNpcInRange()
     {
         var npcInRange = Physics.OverlapBox(transform.position, radius);
 
-        if (npcInRange.Length == 0) _hasNPCInRange = false; 
+        if (npcInRange.Length == 0) _hasNpcInRange = false; 
         
         foreach (var aNPC in npcInRange)
         {
             if (aNPC.transform.CompareTag("NPC"))
             {
-                _hasNPCInRange = true;
+                _hasNpcInRange = true;
                 npcName = aNPC.GetComponent<NPCName>();
                 break;
             }
-            _hasNPCInRange = false;
+            _hasNpcInRange = false;
         }
     }
 
     private void OnNPCInRange() 
     {
-        if (_hasNPCInRange)
+        if (_hasNpcInRange)
         {
-            _allDialogue = npcName._npc.AllDialogue[0];
-            _dialogueManager._isWithinRadius = true;
-            if(_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(false);
-            if (!_dialogueManager._isTalking) _dialogueManager.inputIndication.SetActive(true);
+            allDialogue = npcName.npc.AllDialogue[0];
+            dialogueManager.isWithinRadius = true;
+            if(dialogueManager.isTalking) dialogueManager.inputIndication.SetActive(false);
+            if (!dialogueManager.isTalking) dialogueManager.inputIndication.SetActive(true);
         }
         else
         {
-            if (!_dialogueManager._isTalking || _dialogueManager._dialogueOrder >= _allDialogue.NPCDialogue.Count)
+            if (!dialogueManager.isTalking || dialogueManager.dialogueOrder >= allDialogue.NpcDialogue.Count)
             {
-                _dialogueManager.OnEndConversation();
-                _dialogueManager.inputIndication.SetActive(false);
+                dialogueManager.OnEndConversation();
+                dialogueManager.inputIndication.SetActive(false);
                 choiceManager.isPlayerResponse = false;
             }
         }
