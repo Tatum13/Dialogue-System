@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054776ecf32a7334fa788f88c0028fd6, type: 3}
+  m_Name: Ted
+  m_EditorClassIdentifier: 
+  allDialogue:
+  - npcDialogue:
+    - npcDialogue: Hey buddy, how you doing?
+      playerResponse:
+        namePlayer: You
+        positiveResponse:
+          reactPositive: I'm doing great, thanks for asking! What are you doing here
+            though?
+          npcResponse:
+            npcDialogue: That is good to hear, and well I'm here to a little experiment
+              with people.
+            playerResponse:
+              namePlayer: You
+              positiveResponse:
+                reactPositive: What experiment are you testing out?
+                npcResponse:
+                  npcDialogue: Well I'm waiting for people to talk to me and see
+                    how they respond to me, because I'm just standing here.
+                  playerResponse:
+                    namePlayer: You
+                    positiveResponse:
+                      reactPositive: Well I hope you enjoy your experiment. I got
+                        to go now though, so goodbye!
+                      npcResponse:
+                        npcDialogue: Goodbye!
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: Damn thats sounds boringg. Well I got to go.
+                        Goodbye.
+                      npcResponse:
+                        npcDialogue: Goodbye.
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+              negativeResponse:
+                reactNegative: Oh okay, I'm not interested. Goodbye.
+                npcResponse:
+                  npcDialogue: Goodbye.
+                  playerResponse:
+                    namePlayer: 
+                    positiveResponse:
+                      reactPositive: 
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: 
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+        negativeResponse:
+          reactNegative: I'm doing so well, but thanks for asking. What are you doing
+            here?
+          npcResponse:
+            npcDialogue: Aww I hope everything will be okay soon, and I'm here for
+              an experiment.
+            playerResponse:
+              namePlayer: You
+              positiveResponse:
+                reactPositive: An experiment? Could you tell me more about this experiment?
+                npcResponse:
+                  npcDialogue: Ofcourse! Well I'm waiting for people to talk to me
+                    and see how they respond to me, because I'm just standing here.
+                  playerResponse:
+                    namePlayer: You
+                    positiveResponse:
+                      reactPositive: Well hope you have fun! I got to go now, goodbye!
+                      npcResponse:
+                        npcDialogue: Goodbye!
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: Sounds boring, goodbye.
+                      npcResponse:
+                        npcDialogue: Goodbye.
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+              negativeResponse:
+                reactNegative: Ah okay. I don't have time to hear about it.
+                npcResponse:
+                  npcDialogue: I underdstand, goodbye!
+                  playerResponse:
+                    namePlayer: 
+                    positiveResponse:
+                      reactPositive: 
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
+                    negativeResponse:
+                      reactNegative: 
+                      npcResponse:
+                        npcDialogue: 
+                        playerResponse:
+                          namePlayer: 
+                          positiveResponse:
+                            reactPositive: 
+                          negativeResponse:
+                            reactNegative: 
